@@ -31,7 +31,7 @@ console.log(tax); */
 
 // Practical Example of Total Cart Price
 const cartItems = [(quantity = 10), (price = 12000)];
-const subTotal = cartItems.reduce((acc, i) => quantity * price, 0);
+const subTotal = cartItems.reduce(() => quantity * price, 0);
 const tax = subTotal * 0.18;
 const shippingCharges = subTotal > 1000 ? 0 : 200;
 const totalPrice = subTotal + tax + shippingCharges;
