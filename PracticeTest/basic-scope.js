@@ -1,4 +1,4 @@
-/* let a = "first";
+let a = "first";
 function scopeTest() {
   console.log(a);
   a = "changed";
@@ -13,4 +13,3 @@ function scopeTest() {
 }
 scopeTest();
 //console.log(d);
- */
