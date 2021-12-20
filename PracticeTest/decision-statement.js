@@ -1,4 +1,4 @@
-/* var count = 3;
+var count = 3;
 if (count == 4) {
   console.log("Count is 4");
 } else if (count > 4) {
@@ -8,9 +8,9 @@ if (count == 4) {
 } else {
   console.log("Count is not equal to 4 ");
 }
- */
-/* let hero = "Superman"; 
-// search or type Uppercase it cannot 
+
+let hero = "Superman";
+// search or type Uppercase it cannot
 // search but .toLowerCase will make it lowerCase
 switch (hero.toLowerCase()) {
   case "superman":
@@ -24,13 +24,13 @@ switch (hero.toLowerCase()) {
   default:
     console.log("member of JLA");
 }
- */
+
 // Ternary Operator
-/* let a = 1,
+let a = 1,
   b = "1";
 let result = a == b ? "equal" : "inequal";
 console.log(result);
-// this will return equal with string */
+// this will return equal with string
 let a = 1,
   b = "1";
 //let result = a === b ? "equal" : "inequal";
