@@ -89,12 +89,16 @@ let data = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve({name : "Tausif", age: 27})
         reject("Error to get")
+        throw new Error("data issue")
     },2000)
 })
 data.then((result) => {
-    console.log(result)
+    throw new Error("data issue")
+    console.log("then block", result)
 }).catch((err) => {
-    console.log(err)
+    console.log("catch block", err)
+}).finally((result) => {
+    console.log("FINALLY", result)
 })
 console.log("synchronous")
 
