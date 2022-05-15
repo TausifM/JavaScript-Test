@@ -115,7 +115,8 @@ data2.then((result) => {
 })
 
 
-// Promise.all -- Its having drawback if any one Promise will reject then only that will show in the catch not other 
+// Promise.all -- Its having drawback if any one Promise will reject then 
+// only that will show in the catch not other 
 // will fullfilled or reject that information is not shown
 let data4 = Promise.all([
     new Promise((resolve, reject) => {
@@ -156,8 +157,8 @@ let data5 = Promise.allSettled([
     }),
     new Promise((resolve, reject) => {
         setTimeout(() => {
-            //("1 second")
-            reject("Error in 2nd Promise")
+            resolve("1 second")
+            //reject("Error in 2nd Promise")
         }, 1000)
     }),
     new Promise((resolve, reject) => {
@@ -167,6 +168,35 @@ let data5 = Promise.allSettled([
     })
 ])
 data5.then((result) => {
+    //throw new Error("data issue")
+    console.log("then block", result)
+}).catch((err) => {
+    console.log("catch block", err)
+})
+
+
+// Promise.race -- If only want to show out of three, 
+// first API resolve only that RESULT then Promise.race used
+
+let data6 = Promise.race([
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("2 second")
+        }, 2000)
+    }),
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("1 second")
+            //reject("Error in 2nd Promise")
+        }, 1000)
+    }),
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("4 second")
+        }, 4000)
+    })
+])
+data6.then((result) => {
     //throw new Error("data issue")
     console.log("then block", result)
 }).catch((err) => {
