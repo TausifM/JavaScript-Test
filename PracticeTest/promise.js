@@ -72,3 +72,40 @@ promiseObj2
 //6. Promise.allsettled
 //7. Promise.race
 
+// Below example explaining how synchronous JavaScript fails 
+// to get data which is taking time to resolve
+
+let data1 = 1;
+console.log(data1); // 1 
+data1=2
+setTimeout(() => {
+console.log(data1); // 3
+}, 2000);
+data1 = 3;
+console.log("last",data1); // 3
+
+// Simple Promise 
+let data = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve({name : "Tausif", age: 27})
+        reject("Error to get")
+    },2000)
+})
+data.then((result) => {
+    console.log(result)
+}).catch((err) => {
+    console.log(err)
+})
+console.log("synchronous")
+
+
+// When Promisenis resolve more than 01 ONE then 
+// It is called Promise Chainning.
+let data2 = fetch("https://jsonplaceholder.typicode.com/todos/")
+// console.log(data2);
+data2.then((result) => {
+    //console.log(result);
+    return result.json()
+}).then((res) => {
+    console.log("2nd result",res)
+})
