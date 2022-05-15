@@ -202,3 +202,5 @@ data6.then((result) => {
 }).catch((err) => {
     console.log("catch block", err)
 })
+
+// In the setTimeout if resolve or reject is first that will go in the .then block first
