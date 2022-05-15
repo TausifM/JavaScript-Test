@@ -89,18 +89,18 @@ let data = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve({name : "Tausif", age: 27})
         reject("Error to get")
-        throw new Error("data issue")
-    },2000)
+        //throw new Error("data issue")
+    },2000) 
 })
 data.then((result) => {
-    throw new Error("data issue")
+    //throw new Error("data issue")
     console.log("then block", result)
 }).catch((err) => {
     console.log("catch block", err)
 }).finally((result) => {
     console.log("FINALLY", result)
 })
-console.log("synchronous")
+console.log("synchronous");
 
 
 // When Promisenis resolve more than 01 ONE then 
@@ -112,4 +112,34 @@ data2.then((result) => {
     return result.json()
 }).then((res) => {
     console.log("2nd result",res)
+})
+
+
+// Promise.all -- Its having drawback if any one Promise will reject then only that will show in the catch not other 
+// will fullfilled or reject that information is not shown
+let data4 = Promise.all([
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("2 second")
+        }, 2000)
+    }),
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            //resolve("1 second")
+            reject("Error in 2nd Promise")
+        }, 1000)
+    }),
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("4 second")
+        }, 4000)
+    })
+])
+data4.then((result) => {
+    //throw new Error("data issue")
+    console.log("then block", result)
+}).catch((err) => {
+    console.log("catch block", err)
+}).finally((result) => {
+    console.log("FINALLY", result)
 })
