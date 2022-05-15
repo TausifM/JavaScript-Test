@@ -143,3 +143,32 @@ data4.then((result) => {
 }).finally((result) => {
     console.log("FINALLY", result)
 })
+
+// Promise.allSettled -- To over above Problem in Promise.all 
+// Promise.allSettled() -- is use which shows details of all Promise in which
+// having error or success
+
+let data5 = Promise.allSettled([
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("2 second")
+        }, 2000)
+    }),
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            //("1 second")
+            reject("Error in 2nd Promise")
+        }, 1000)
+    }),
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("4 second")
+        }, 4000)
+    })
+])
+data5.then((result) => {
+    //throw new Error("data issue")
+    console.log("then block", result)
+}).catch((err) => {
+    console.log("catch block", err)
+})
