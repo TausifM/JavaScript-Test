@@ -137,3 +137,14 @@ if(indexOfMarch1 !== -1){
 }else{
   console.log("No such data found")
 }
+
+// If you want to delete the data After April
+const indexOfMarch2 = month.indexOf("April") // if present of it will return +ve number
+
+if(indexOfMarch2 !== -1){
+  const updateMarch = month.splice(indexOfMarch2, Infinity) // After April all deleted by Infinity
+  console.log(month) // [ 'Jan', 'March' ]
+  console.log(updateMarch, "After deleting splice return deleted data") // June
+}else{
+  console.log("No such data found")
+}
